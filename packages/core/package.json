@@ -23,10 +23,9 @@
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "build": "pnpm clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "echo \"No tests specified\" && exit 1"
+    "check:package": "publint && attw --pack"
   },
   "devDependencies": {
-    "@types/node": "^22.20.1",
-    "typescript": "^6.0.3"
+    "@types/node": "^22.20.1"
   }
 }
