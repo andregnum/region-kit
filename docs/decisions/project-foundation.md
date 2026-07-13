@@ -4075,3 +4075,4 @@ Sebuah milestone dianggap selesai hanya jika:
 | 2026-07-12 | Menetapkan roadmap MVP, milestone pasca-MVP, dan kriteria menuju `1.0.0`. |
 | 2026-07-13 | Menyesuaikan konfigurasi Vitest dari workspace menjadi projects sesuai API Vitest terbaru. |
 | 2026-07-13 | Memindahkan dokumen fondasi ke struktur keputusan arsitektur repository. |
+| 2026-07-13 | Menambahkan lisensi serta panduan dan template kontribusi repository. |
