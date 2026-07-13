@@ -4074,3 +4074,4 @@ Sebuah milestone dianggap selesai hanya jika:
 | 2026-07-12 | Menetapkan testing standards, compatibility checks, merge gates, dan release gates. |
 | 2026-07-12 | Menetapkan roadmap MVP, milestone pasca-MVP, dan kriteria menuju `1.0.0`. |
 | 2026-07-13 | Menyesuaikan konfigurasi Vitest dari workspace menjadi projects sesuai API Vitest terbaru. |
+| 2026-07-13 | Memindahkan dokumen fondasi ke struktur keputusan arsitektur repository. |
