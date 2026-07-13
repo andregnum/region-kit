@@ -1900,6 +1900,35 @@ Test runner resmi adalah Vitest.
 vitest
 ```
 
+Vitest dan coverage provider dipasang sebagai shared development dependencies di root workspace agar seluruh package menggunakan versi tooling yang sama.
+
+Konfigurasi lintas-package menggunakan `test.projects` pada root `vitest.config.ts`:
+
+```ts
+import { defineConfig } from "vitest/config";
+
+export default defineConfig({
+  test: {
+    projects: ["packages/*/vitest.config.ts"],
+  },
+});
+```
+
+Setiap package menyediakan konfigurasi project untuk kebutuhan khususnya:
+
+```ts
+import { defineProject } from "vitest/config";
+
+export default defineProject({
+  test: {
+    name: "region-kit",
+    environment: "node",
+  },
+});
+```
+
+Pendekatan `test.projects` digunakan karena workspace configuration telah digantikan oleh projects sejak Vitest 3.2. File `vitest.workspace.ts` tidak digunakan agar repository tidak bergantung pada API yang telah deprecated.
+
 Perintah testing:
 
 ```bash
@@ -2399,7 +2428,7 @@ region-kit/
 ├── SECURITY.md
 ├── tsconfig.base.json
 ├── typedoc.json
-└── vitest.workspace.ts
+└── vitest.config.ts
 ```
 
 Tidak semua file harus dibuat sebelum dibutuhkan. Struktur tersebut merupakan target organisasi repository, bukan kewajiban membuat file kosong sejak awal.
@@ -2428,8 +2457,9 @@ Root repository bersifat private dan tidak dipublikasikan ke npm.
   "scripts": {
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test",
-    "test:coverage": "pnpm -r test:coverage",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
@@ -2997,7 +3027,7 @@ Konfigurasi bersama ditempatkan di root:
 eslint.config.js
 .prettierrc.json
 tsconfig.base.json
-vitest.workspace.ts
+vitest.config.ts
 typedoc.json
 ```
 
@@ -4043,3 +4073,4 @@ Sebuah milestone dianggap selesai hanya jika:
 | 2026-07-12 | Menetapkan public API, pagination, traversal, lifecycle, dan error behaviour. |
 | 2026-07-12 | Menetapkan testing standards, compatibility checks, merge gates, dan release gates. |
 | 2026-07-12 | Menetapkan roadmap MVP, milestone pasca-MVP, dan kriteria menuju `1.0.0`. |
+| 2026-07-13 | Menyesuaikan konfigurasi Vitest dari workspace menjadi projects sesuai API Vitest terbaru. |
