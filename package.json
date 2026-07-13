@@ -15,10 +15,14 @@
     "format:check": "prettier . --check",
     "docs": "pnpm --filter region-kit docs",
     "check:package": "pnpm -r check:package",
-    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build && pnpm check:package"
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build && pnpm check:package",
+    "changeset": "changeset",
+    "changeset:status": "changeset status",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
+    "@changesets/cli": "2.31.0",
     "@eslint/js": "^10.0.1",
     "@vitest/coverage-v8": "4.1.10",
     "eslint": "^10.7.0",
