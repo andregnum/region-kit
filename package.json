@@ -18,12 +18,14 @@
     "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build && pnpm check:package"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
     "@eslint/js": "^10.0.1",
     "@vitest/coverage-v8": "4.1.10",
     "eslint": "^10.7.0",
     "eslint-config-prettier": "10.1.8",
     "globals": "^17.7.0",
     "prettier": "3.9.5",
+    "publint": "0.3.21",
     "typescript": "6.0.3",
     "typescript-eslint": "^8.63.0",
     "vitest": "4.1.10"
